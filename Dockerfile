@@ -1,3 +1,3 @@
 FROM openjdk:17-jdk
-COPY target/your-webapp.jar /app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+COPY target/COMP367-Lab2.war /app.war
+ENTRYPOINT ["java", "-jar", "/app.war"]
