@@ -25,7 +25,7 @@ pipeline {
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-password', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                    bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
                 }
             }
         }
@@ -33,15 +33,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                // Build Docker image using the Dockerfile
-                sh 'docker build -t tmt01/301106599-lab3 .'
+                bat 'docker build -t tmt01/301106599-lab3 .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                // Push Docker image to Docker Hub
-                sh 'docker push tmt01/301106599-lab3'
+                bat 'docker push tmt01/301106599-lab3'
             }
         }
     }
