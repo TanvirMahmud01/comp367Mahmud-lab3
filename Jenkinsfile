@@ -34,15 +34,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build Docker image using the Dockerfile
-                sh 'docker build -t tmt01/your-image-name .'
+                sh 'docker build -t tmt01/301106599-lab3 .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
                 // Push Docker image to Docker Hub
-                //sh 'docker push your-docker-username/your-image-name'
-                sh 'docker push tmt01/your-image-name'
+                sh 'docker push tmt01/301106599-lab3'
             }
         }
     }
