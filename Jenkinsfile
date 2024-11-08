@@ -12,7 +12,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/TanvirMahmud01/comp367Mahmud-lab3.git'
 
                 // Build the Maven project
-                bat "mvn -maven.test.failure.ignore=true clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post {
                 success {
